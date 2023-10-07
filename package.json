@@ -1,0 +1,93 @@
+{
+  "name": "pythonfiletemplates",
+  "displayName": "PythonFileTemplates",
+  "description": "Extension for python file templates in VS Code",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.83.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "submenus": [
+      {
+        "id": "pythonfiletemplates.new",
+        "label": "New Python"
+      }
+    ],
+    "commands": [
+      {
+        "command": "pythonfiletemplates.createModule",
+        "title": "Module"
+      },
+      {
+        "command": "pythonfiletemplates.createClass",
+        "title": "Class"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "pythonfiletemplates.createModule",
+          "when": "false"
+        },
+        {
+          "command": "pythonfiletemplates.createClass",
+          "when": "false"
+        }
+      ],
+      "file/newFile": [
+        {
+          "command": "pythonfiletemplates.createModule",
+          "group": "file",
+          "when": "!virtualWorkspace"
+        },
+        {
+          "command": "pythonfiletemplates.createClass",
+          "group": "file",
+          "when": "!virtualWorkspace"
+        }
+      ],
+      "pythonfiletemplates.new":[
+        {
+          "group": "00_basics@0",
+          "command": "pythonfiletemplates.createModule"
+        },
+        {
+          "group": "00_basics@1",
+          "command": "pythonfiletemplates.createClass"
+        }
+      ],
+      "explorer/context": [
+        {
+          "submenu": "pythonfiletemplates.new",
+          "group": "navigation@-1",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.83.0",
+    "@types/mocha": "^10.0.2",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "eslint": "^8.50.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.2.2",
+    "@vscode/test-electron": "^2.3.4"
+  }
+}

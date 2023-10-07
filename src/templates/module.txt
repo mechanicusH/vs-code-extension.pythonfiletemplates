@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
+"""
+TBD: Module Docstring
+"""
+
+def main():
+    """
+    TBD: Method DocString
+    """
+    pass
+
+if __name__ == '__main__':
+    main()
