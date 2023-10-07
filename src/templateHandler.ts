@@ -63,7 +63,7 @@ export default class TemplateHandler {
 
     //TODO: templateType as enum
     public static async getTemplateContent(templateType: string): Promise<string> {
-        let extensionPath = vscode.extensions.getExtension('undefined_publisher.pythonfiletemplates')!.extensionPath;
+        let extensionPath = vscode.extensions.getExtension('mechanicusH.pythonfiletemplates')!.extensionPath;
         let filePath = path.join(extensionPath, "src", "templates", templateType + ".txt");
 
         return await FileHandler.readFile(filePath);
