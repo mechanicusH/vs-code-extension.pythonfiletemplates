@@ -1,14 +1,22 @@
 {
+  "publisher": "mechanicusH",
   "name": "pythonfiletemplates",
   "displayName": "PythonFileTemplates",
   "description": "Extension for python file templates in VS Code",
-  "version": "0.0.1",
+  "pricing": "Free",
+  "license":"MIT",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.83.0"
   },
   "categories": [
-    "Other"
+    "Snippets", "Programming Languages"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mechanicusH/vs-code-extension.pythonfiletemplates.git"
+  },
+  "homepage": "https://github.com/mechanicusH/vs-code-extension.pythonfiletemplates",
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
