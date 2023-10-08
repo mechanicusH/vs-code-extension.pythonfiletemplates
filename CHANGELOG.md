@@ -2,8 +2,13 @@
 
 All notable changes to the "pythonfiletemplates" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
 ## [Unreleased]
 
-- Initial release
+* Add Packages
+* Add Settings for custom templates
+* Add Cokkie Cutter Support for more complex templates
+
+## [0.2.0] - 2023-10-08
+### Added
+
+New file opens in text editor
