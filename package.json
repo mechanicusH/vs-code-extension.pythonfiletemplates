@@ -3,6 +3,7 @@
   "name": "pythonfiletemplates",
   "displayName": "PythonFileTemplates",
   "description": "Extension for python file templates in VS Code",
+  "icon": "icon.png",
   "pricing": "Free",
   "license":"MIT",
   "version": "0.1.0",
@@ -11,6 +12,9 @@
   },
   "categories": [
     "Snippets", "Programming Languages"
+  ],
+  "keywords": [
+    "Python"
   ],
   "repository": {
     "type": "git",
