@@ -22,6 +22,8 @@ export function activate(context: vscode.ExtensionContext) {
 				let filePath = (args._fsPath ?? args.fsPath ?? args.path) as string;
 				let fileName = await TemplateHandler.promptModuleName();
 				TemplateHandler.writeTemplate(path.join(filePath, fileName), 'module');
+
+				openFile(path.join(filePath, fileName));
 			}
 			catch {
 				vscode.window.showErrorMessage("Error creating file from template. See output for details");
@@ -36,6 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
 				let tokens = (new Map<string, string>()).set('className', classInformation.className);
 	
 				TemplateHandler.writeTemplate(path.join(filePath, classInformation.fileName), 'class', tokens);
+				openFile(path.join(filePath, classInformation.fileName));
 			}
 			catch {
 				vscode.window.showErrorMessage("Error creating file from template. See output for details");
@@ -49,3 +52,11 @@ export function activate(context: vscode.ExtensionContext) {
 
 // This method is called when your extension is deactivated
 export function deactivate() {}
+
+export function openFile(filePath: string)
+{
+	var openPath = vscode.Uri.file(filePath);
+	vscode.workspace.openTextDocument(openPath).then(doc => {
+		vscode.window.showTextDocument(doc);
+	  });
+}
