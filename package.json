@@ -5,13 +5,14 @@
   "description": "Extension for python file templates in VS Code",
   "icon": "icon.png",
   "pricing": "Free",
-  "license":"MIT",
-  "version": "0.1.0",
+  "license": "MIT",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.83.0"
   },
   "categories": [
-    "Snippets", "Programming Languages"
+    "Snippets",
+    "Programming Languages"
   ],
   "keywords": [
     "Python"
@@ -63,7 +64,7 @@
           "when": "!virtualWorkspace"
         }
       ],
-      "pythonfiletemplates.new":[
+      "pythonfiletemplates.new": [
         {
           "group": "00_basics@0",
           "command": "pythonfiletemplates.createModule"
