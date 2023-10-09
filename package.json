@@ -6,7 +6,7 @@
   "icon": "icon.png",
   "pricing": "Free",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "engines": {
     "vscode": "^1.75.0"
   },
@@ -92,7 +92,7 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.83.0",
+    "@types/vscode": "^1.75.0",
     "@types/mocha": "^10.0.2",
     "@types/node": "18.x",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
