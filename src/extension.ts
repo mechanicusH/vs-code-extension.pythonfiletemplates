@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
 			try {
 				let filePath = (args._fsPath ?? args.fsPath ?? args.path) as string;
 				let fileName = await TemplateHandler.promptModuleName();
-				TemplateHandler.writeTemplate(path.join(filePath, fileName), 'module');
+				await TemplateHandler.writeTemplate(path.join(filePath, fileName), 'module');
 
 				openFile(path.join(filePath, fileName));
 			}
@@ -37,7 +37,7 @@ export function activate(context: vscode.ExtensionContext) {
 	
 				let tokens = (new Map<string, string>()).set('className', classInformation.className);
 	
-				TemplateHandler.writeTemplate(path.join(filePath, classInformation.fileName), 'class', tokens);
+				await TemplateHandler.writeTemplate(path.join(filePath, classInformation.fileName), 'class', tokens);
 				openFile(path.join(filePath, classInformation.fileName));
 			}
 			catch {
