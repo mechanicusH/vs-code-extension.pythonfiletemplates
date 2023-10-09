@@ -2,7 +2,7 @@
 
 This extensions provides an easy way to create Python Files based on templates by expanding the context menu of the VS Code File Explorer.
 
-In v0.1 all templates are fixed. Future versions will support custom templates.
+In the current version all templates are fixed. Future versions will support custom templates.
 
 ## Features
 
