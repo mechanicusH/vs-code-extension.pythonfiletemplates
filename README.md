@@ -22,7 +22,7 @@ Currently there are no requirements to be met. I will try keeping this extension
 Currently there are no settings available.
 
 ## Release Notes
-See [CHANGELOG](changelog.md)
+See [CHANGELOG](CHANGELOG.md)
 
 ## Road Map
 
