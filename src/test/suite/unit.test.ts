@@ -73,4 +73,30 @@ suite('Extension Test Suite', () => {
         
         assert.strictEqual('token: replacedValue, $_somethingElse', result);
 	});
+
+    
+    test('TemplateHandler.removePyFileExtension: .py-Extension is removed', () => {
+        let result = TemplateHandler.removePyFileExtension('filename.py');
+        assert.strictEqual('filename', result);
+
+        result = TemplateHandler.removePyFileExtension('filename.html.py');
+        assert.strictEqual('filename.html', result);
+	});
+
+    test('TemplateHandler.removePyFileExtension: extension that is not .py is returned', () => {
+        let result = TemplateHandler.removePyFileExtension('filename.jpg');
+        assert.strictEqual('filename.jpg', result);
+
+        result = TemplateHandler.removePyFileExtension('filename.pypy');
+        assert.strictEqual('filename.pypy', result);
+
+        result = TemplateHandler.removePyFileExtension('filename.py.html');
+        assert.strictEqual('filename.py.html', result);
+	});
+    
+    test('TemplateHandler.removePyFileExtension: no extension returns unchanged input', () => {
+        let result = TemplateHandler.removePyFileExtension('filename');
+        
+        assert.strictEqual('filename', result);
+	});
 });

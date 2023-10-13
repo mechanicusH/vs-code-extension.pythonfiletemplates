@@ -13,6 +13,7 @@ export default class TemplateHandler {
 		if(fileName === undefined || fileName === "") {
 			throw new Error("No name provided");
 		}
+        fileName = this.removePyFileExtension(fileName);
         return fileName + ".py";
     }
 
@@ -30,7 +31,7 @@ export default class TemplateHandler {
         if(className === undefined || className === "") {
 			throw new Error("No name provided");
 		}
-        
+        className = this.removePyFileExtension(className); 
         let fileName = className!
             .replace(/^./g, letter => `${letter.toLowerCase()}`) // first charakter to lowercase
             .replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`); // all other upper case letters to _ + lower case letter
@@ -50,6 +51,16 @@ export default class TemplateHandler {
         return templateText;
     }
 
+    public static removePyFileExtension(name: string) : string {
+        
+        let extension = path.extname(name);
+        if(extension !== '.py')
+        {
+            return name;
+        }
+        
+        return name.substring(0, name.length-3);
+    }
 
     public static async writeTemplate(newFilePath: string, templateType: string, tokens?: Map<string, string>) {
         let templateText = await TemplateHandler.getTemplateContent(templateType);
