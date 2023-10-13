@@ -8,7 +8,7 @@ export default class TemplateHandler {
         
 		let fileName = await vscode.window.showInputBox( {
 			ignoreFocusOut: true,
-			prompt: "Enter the module name"
+			prompt: "Enter the module name (snake_case)"
 		});
 		
 		if(fileName === undefined || fileName === "") {
@@ -22,7 +22,7 @@ export default class TemplateHandler {
         
 		let className = await vscode.window.showInputBox( {
 			ignoreFocusOut: true,
-			prompt: "Enter the module name"
+			prompt: "Enter the class name (PascalCase)"
 		});
 		
 		return this.getClassInformation(className);
