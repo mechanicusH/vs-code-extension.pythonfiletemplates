@@ -4,6 +4,7 @@ import * as vscode from 'vscode';
 import * as path from 'path';
 import { File } from 'buffer';
 import TemplateHandler from './templateHandler';
+import { TemplateType } from './TemplateTypes';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -21,7 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
 			try {
 				let filePath = (args._fsPath ?? args.fsPath ?? args.path) as string;
 				let fileName = await TemplateHandler.promptModuleName();
-				await TemplateHandler.writeTemplate(path.join(filePath, fileName), 'module');
+				await TemplateHandler.writeTemplate(path.join(filePath, fileName), TemplateType.module);
 
 				openFile(path.join(filePath, fileName));
 			}
@@ -37,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
 	
 				let tokens = (new Map<string, string>()).set('className', classInformation.className);
 	
-				await TemplateHandler.writeTemplate(path.join(filePath, classInformation.fileName), 'class', tokens);
+				await TemplateHandler.writeTemplate(path.join(filePath, classInformation.fileName), TemplateType.class, tokens);
 				openFile(path.join(filePath, classInformation.fileName));
 			}
 			catch {

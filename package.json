@@ -6,7 +6,7 @@
   "icon": "icon.png",
   "pricing": "Free",
   "license": "MIT",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "engines": {
     "vscode": "^1.75.0"
   },
@@ -25,6 +25,25 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration":[
+      {
+        "title": "PythonFileTemplates",
+        "properties": {
+          "pythonfiletemplates.moduleTemplateText": {
+            "type": "string",
+            "description": "Sets the text for new modules.",
+            "editPresentation": "multilineText",
+            "default": "#!/usr/bin/env python3\n# -*- coding: UTF-8 -*-\n\n\"\"\"\nTBD: Module Docstring\n\"\"\"\n\n\ndef main():\n    \"\"\"\n    TBD: Method DocString\n    \"\"\"\n    pass\n\n\nif __name__ == '__main__':\n    main()\n"
+          },
+          "pythonfiletemplates.classTemplateText": {
+            "type": "string",
+            "description": "Sets the text for new classes. $_className is replaced by the name of the class.",
+            "editPresentation": "multilineText",
+            "default": "\n\nclass $_className:\n    \"\"\"\n    TBD\n    \"\"\"\n    pass\n"
+          }
+        }
+      }
+    ],
     "submenus": [
       {
         "id": "pythonfiletemplates.new",

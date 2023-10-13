@@ -4,6 +4,7 @@ import * as assert from 'assert';
 // as well as import your extension to test it
 import * as vscode from 'vscode';
 import TemplateHandler from '../../templateHandler';
+import { TemplateType } from '../../TemplateTypes';
 // import * as myExtension from '../../extension';
 
 suite('Extension Test Suite', () => {
@@ -98,5 +99,22 @@ suite('Extension Test Suite', () => {
         let result = TemplateHandler.removePyFileExtension('filename');
         
         assert.strictEqual('filename', result);
+	});
+
+
+    test('TemplateHandler.getTemplateContent: module has correct default value', async () => {
+        let result = await TemplateHandler.getTemplateContent(TemplateType.module);
+        
+        assert.strictEqual(
+            "#!/usr/bin/env python3\n# -*- coding: UTF-8 -*-\n\n\"\"\"\nTBD: Module Docstring\n\"\"\"\n\ndef main():\n    \"\"\"\n    TBD: Method DocString\n    \"\"\"\n    pass\n\nif __name__ == '__main__':\n    main()"
+            , result);
+	});
+
+    test('TemplateHandler.getTemplateContent: class has correct default value', async () => {
+        let result = await TemplateHandler.getTemplateContent(TemplateType.class);
+        
+        assert.strictEqual(
+            "\n\nclass $_className\n    \"\"\"\n    TBD\n    \"\"\"\n    pass\n"
+            , result);
 	});
 });

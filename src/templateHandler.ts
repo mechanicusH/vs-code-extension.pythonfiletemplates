@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import FileHandler from './filehandler';
+import * as templateTypes from './TemplateTypes';
 
 export default class TemplateHandler {
     public static async promptModuleName() : Promise<string> {
@@ -62,7 +63,7 @@ export default class TemplateHandler {
         return name.substring(0, name.length-3);
     }
 
-    public static async writeTemplate(newFilePath: string, templateType: string, tokens?: Map<string, string>) {
+    public static async writeTemplate(newFilePath: string, templateType: templateTypes.TemplateType, tokens?: Map<string, string>) {
         let templateText = await TemplateHandler.getTemplateContent(templateType);
         
         if(tokens) {
@@ -72,11 +73,7 @@ export default class TemplateHandler {
         FileHandler.writeFile(newFilePath, templateText);
     }
 
-    //TODO: templateType as enum
-    public static async getTemplateContent(templateType: string): Promise<string> {
-        let extensionPath = vscode.extensions.getExtension('mechanicusH.pythonfiletemplates')!.extensionPath;
-        let filePath = path.join(extensionPath, "templates", templateType + ".txt");
-
-        return await FileHandler.readFile(filePath);
+    public static async getTemplateContent(templateType: templateTypes.TemplateType): Promise<string> {
+        return vscode.workspace.getConfiguration('pythonfiletemplates').get(`${templateType}TemplateText`) as string;
     }
 }
