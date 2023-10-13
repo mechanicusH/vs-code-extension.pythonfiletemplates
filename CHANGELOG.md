@@ -7,7 +7,11 @@ All notable changes to the "pythonfiletemplates" extension will be documented in
 * Add settings for custom templates
 * Add Cookiecutter support for more complex templates
 
-## [0.3] - 2023-10-13
+## [0.3.1] - 2023-10-13
+### Fixed
+Input for module and class name shows the correct prompt text for each template.
+
+## [0.3.0] - 2023-10-13
 ### Fixed
 If module or class names are typed with .py it won't be saved as name.py.py anymore
 

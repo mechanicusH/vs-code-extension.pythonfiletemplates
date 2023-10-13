@@ -13,13 +13,23 @@ Currently supported:
 * Modules
 * Classes
 
+![Using the context menu to create a new module and a new class](docs/create_file.gif "Create new files")
+
 ## Requirements
 
 Currently there are no requirements to be met. I will try keeping this extension as small and basic as possible. :)
 
 ## Extension Settings
 
-Currently there are no settings available.
+The template texts are defined in the following settings.
+* `pythonfiletemplates.moduleTemplateText`
+* `pythonfiletemplates.classTemplateText`
+
+They can be changed in the UI and in settings.json. 
+
+![Extension settings in UI](docs/settings_ui.jpg "Settings in UI")
+
+![Extension settings in settings.json](docs/settings_json.gif "Settings in settings.json")
 
 ## Release Notes
 See [CHANGELOG](CHANGELOG.md)
