@@ -106,7 +106,7 @@ suite('Extension Test Suite', () => {
         let result = await TemplateHandler.getTemplateContent(TemplateType.module);
         
         assert.strictEqual(
-            "#!/usr/bin/env python3\n# -*- coding: UTF-8 -*-\n\n\"\"\"\nTBD: Module Docstring\n\"\"\"\n\ndef main():\n    \"\"\"\n    TBD: Method DocString\n    \"\"\"\n    pass\n\nif __name__ == '__main__':\n    main()"
+            "#!/usr/bin/env python3\n# -*- coding: UTF-8 -*-\n\n\"\"\"\nTBD: Module Docstring\n\"\"\"\n\n\ndef main():\n    \"\"\"\n    TBD: Method DocString\n    \"\"\"\n    pass\n\n\nif __name__ == '__main__':\n    main()\n"
             , result);
 	});
 
