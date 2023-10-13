@@ -114,7 +114,7 @@ suite('Extension Test Suite', () => {
         let result = await TemplateHandler.getTemplateContent(TemplateType.class);
         
         assert.strictEqual(
-            "\n\nclass $_className\n    \"\"\"\n    TBD\n    \"\"\"\n    pass\n"
+            "\n\nclass $_className:\n    \"\"\"\n    TBD\n    \"\"\"\n    pass\n"
             , result);
 	});
 });
